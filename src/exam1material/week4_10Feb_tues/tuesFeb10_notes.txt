@@ -59,7 +59,11 @@ Logika features/tips
 
 General proof strategy to this point
 
-
+1 list premises
+2 before thinking about conclusion, break down premises to get extra info
+3 look at conclusion
+4 consider if you will need OrE( probably will if you have an or statement)
+5 thing anout order of operation
 
 /////////////////////////
 
@@ -82,7 +86,7 @@ How to prove two propositional logic statements are
 equivalent?
 
     Approach 1:
-
+for every truth assignemnt they both have the same output
     Approach 2:
 
 
@@ -91,21 +95,26 @@ equivalent?
 How to prove propositional logic statements are 
 NOT equivalent?
 
-
-
+find one truth assigment that is different
+can't use deduction
 
 What is satisfiability? 
+need to prove where the statement output is true
 
 
 
 - Determining whether an argument is valid or invalid
     (what is an argument?)
     valid: 
-
+    the statement works for every assignemnt
     how prove valid?
+    every truth table assigment follows law
 
+    1. truth table
+
+    2. deduction
     how prove invalid?
-
+    find one where it does not follow law
 
 /////////////////////////////////////////
 

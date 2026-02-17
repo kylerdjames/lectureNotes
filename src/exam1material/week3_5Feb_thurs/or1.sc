@@ -14,20 +14,15 @@ import org.sireum.justification.natded.prop._
         //PROOF GOES HERE
         1 ( p | q ) by Premise,
 
-        //start OrE subproofs
         2 SubProof(
-          3 Assume( p ),
-          4 ( q | p ) by OrI2(3)
-
-          //goal: q | p
+          3 Assume (q),
+          4 ( q | p ) by OrI1(3)
         ),
         5 SubProof(
-          6 Assume( q ),
-          7 ( q | p ) by OrI1(6)
-
-          //goal: q | p
+          6 Assume ( p ),
+          7 ( q | p ) by OrI2(6)
         ),
-        8 ( q | p ) by OrE(1, 2, 5)
+        8 ( q | p ) by OrE(1,5,2)
 
         //goal: q | p
     )

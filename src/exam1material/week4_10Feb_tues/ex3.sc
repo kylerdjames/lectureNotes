@@ -14,8 +14,8 @@ import org.sireum.justification.natded.prop._
       4 ( p | t __>: q __>: r ) by Premise,
       5 ( b | c __>: q ) by Premise,
       
-      //what can we get right away from the premises?
-
+      
+      
     )
   )
 }

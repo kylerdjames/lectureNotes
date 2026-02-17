@@ -15,36 +15,27 @@ import org.sireum.justification.natded.prop._
         2 ( p | q ) by AndE1(1),
         3 ( p | r ) by AndE2(1),
 
-        //OrE cases on p | q
+        
         4 SubProof(
-          5 Assume(p),
-          6 ( p | (q & r) ) by OrI1(5)
-          //goal: p | (q & r)
+          5 Assume( p ),
+          6 ( p | (q & r)) by OrI1(5)
         ),
         7 SubProof(
-          8 Assume(q),
-
-          //OrE subproofs with p | r
-          //assume p, assume r
+          8 Assume ( q ),
           9 SubProof(
-            10 Assume (p),
-            11 ( p | (q & r) ) by OrI1(10)
-
-            //goal:  p | (q & r)
+            10 Assume ( r ),
+            11 ( q & r ) by AndI(8,10),
+            12 ( p | (q & r)) by OrI2(11)
           ),
-          12 SubProof(
-            13 Assume (r),
-            14 ( q & r ) by AndI(8, 13),
-            15 ( p | (q & r) ) by OrI2(14)
-            //goal:  p | (q & r)
+          13 SubProof( 
+            14 Assume ( p ),
+            15 ( p | (q & r)) by OrI1(14)
           ),
-          16 ( p | (q & r) ) by OrE(3, 9, 12)
-          //afterward, assume r  
-
-          //goal: p | (q & r)
+          16 ( p | (q & r)) by OrE(3,13,9),
+          
         ),
-        17 ( p | (q & r) ) by OrE(2, 4, 7)
-        //goal: p | (q & r)
+        17 ( p | (q & r)) by OrE(2,4,7)
+        
     )
   )
 }
