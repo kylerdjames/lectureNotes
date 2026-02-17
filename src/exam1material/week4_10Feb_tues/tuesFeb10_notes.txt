@@ -4,6 +4,31 @@ HW 3 due tonight
 
     What will the structure be?
 
+        p ∨ q ∨ r: top-level is the rightmost or
+        //(p ∨ q) ∨ r
+
+        Try OrE on premise
+        SubProof: assume p ∨ q
+
+            goal: r ∨ q ∨ p
+            top-level is the rightmost Or
+            could introduce OR if have r ∨ q
+                or if I had p
+
+            nested OrE
+            SubProof: assume p 
+                goal: r ∨ q ∨ p
+                r ∨ q ∨ p by OrI2()
+
+            SubProof: assume q 
+                goal: r ∨ q ∨ p
+                first get r ∨ q
+                then get r ∨ q ∨ p
+
+        SubProof: assume r
+
+            goal: r ∨ q ∨ p
+
 
     How to build conclusion?
 
@@ -50,7 +75,6 @@ Bigger examples: ex1.sc, ex2.sc, ex3.sc
 
 Logika features/tips
 
-- see proof step summary
 - renumber/reformat proofs
 - interpreting errors
 
@@ -59,11 +83,22 @@ Logika features/tips
 
 General proof strategy to this point
 
+<<<<<<< HEAD
 1 list premises
 2 before thinking about conclusion, break down premises to get extra info
 3 look at conclusion
 4 consider if you will need OrE( probably will if you have an or statement)
 5 thing anout order of operation
+=======
+1) list premises
+2) break down any premises you can to get extra information
+
+3) look at the conclusion
+
+4) consider if you will need OrE (probably will if you have an OR)
+
+Always consider order of operations!
+>>>>>>> 25ace0d34688315e4ccd9a89aebdc734c169004f
 
 /////////////////////////
 
@@ -85,9 +120,19 @@ See Canvas announcement for list of topics.
 How to prove two propositional logic statements are 
 equivalent?
 
+<<<<<<< HEAD
     Approach 1:
 for every truth assignemnt they both have the same output
+=======
+    Approach 1: two truth tables
+        for every possible truth assignment, the two
+        statements have the same output
+
+>>>>>>> 25ace0d34688315e4ccd9a89aebdc734c169004f
     Approach 2:
+        deduction with two proofs
+        statement1 |- statement2
+        statement2 |- statement1
 
 
 
@@ -95,33 +140,73 @@ for every truth assignemnt they both have the same output
 How to prove propositional logic statements are 
 NOT equivalent?
 
+<<<<<<< HEAD
 find one truth assigment that is different
 can't use deduction
+=======
+    find ONE truth assignment where the two statements
+    have different outpu
+
+    can't use deduction to prove not equivalent
+
+>>>>>>> 25ace0d34688315e4ccd9a89aebdc734c169004f
 
 What is satisfiability? 
 need to prove where the statement output is true
 
+    need ONE truth assignment where the statement outputs true
+    (if we did a truth table, would be a tautology or contingent)
+
+To show NOT satisfiable?
+
+    need FULL truth table to show the statement always outputs false
+    (i.e., is contradictory)
 
 
 - Determining whether an argument is valid or invalid
     (what is an argument?)
+
+        premises, conclusion
+
     valid: 
+<<<<<<< HEAD
     the statement works for every assignemnt
     how prove valid?
     every truth table assigment follows law
+=======
+        if for every truth assignment where all premises are true,
+        the conclusion is also true
+
+    how prove valid?
+        1) truth table with all premises and conclusion
+        look at truth assignments that make all premises true,
+        make sure they make the conclusion true
+
+        2) deduction
+>>>>>>> 25ace0d34688315e4ccd9a89aebdc734c169004f
 
     1. truth table
 
     2. deduction
     how prove invalid?
+<<<<<<< HEAD
     find one where it does not follow law
+=======
+
+        find ONE truth assignment where all premises true
+        but conclusion false
+
+        can't prove invalid with deduction
+
+>>>>>>> 25ace0d34688315e4ccd9a89aebdc734c169004f
 
 /////////////////////////////////////////
 
 Closed notes/computers.
 
 
-Mix of multiple choice (like quizzes) and open-ended (like homework)
+Mix of multiple choice (like quizzes) and open-ended 
+    (like homework)
 
 Some problems will ask for a proof or explanation --
     read carefully!
