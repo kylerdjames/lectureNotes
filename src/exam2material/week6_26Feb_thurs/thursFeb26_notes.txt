@@ -61,7 +61,7 @@ Describe these sets in set builder notation
 
 {13, 19, 25, 31, 37, 43}
 
-
+{ x : x = 6k + 1,  2 ≤ k  ≤ 7}
 
 ///////////////////////////////////////
 ∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
@@ -76,7 +76,7 @@ of all elements....
 
 How could we express in set builder notation?
 
-A ⋃ B = ?
+A ⋃ B = { x : x ∈ A V x ∈ B }
 
 
 Show as a Venn diagram.
@@ -93,7 +93,7 @@ of all elements that are...
 
 How could we express in set builder notation?
 
-A ⋂ B = ?
+A ⋂ B = { x : x ∈ A & x ∈ B }
 
 
 Show as a Venn diagram.
@@ -350,7 +350,7 @@ Carnivore(bat)
 Write each statement in English. Is each one true or false?
 
 ∀ x (Mammal(x))
-
+not all are anmials
 
 
     --> how could we express the same statement in our domain
