@@ -66,23 +66,23 @@ Evaluating predicate logic statements
 Our domain is k1...kn
 
 1) ∀ x P(x)
-    true when: 
-    false when: 
+    true when: all of P(k) is true 
+    false when: not all of P(k) is true
 
 2) ∃ x P(x)
-    true when: 
-    false when: 
+    true when: when one item of P(k) is true
+    false when: when none of P(k)
 
 3) ¬(∀ x P(x))
-    true when: 
-    false when:
+    true when: not all of P(k) is true
+    false when: all of P(k) is true
 
 4) ¬(∃ x P(x))
-    true when: 
-    false when: 
+    true when: when none of P(k) is true
+    false when: when one of P(k) is true
 
 5) ∀ x ¬P(x)
-    true when: 
+    true when
     false when: 
 
 6) ∃ x ¬P(x)
@@ -100,22 +100,24 @@ What do these mean in English? Are they true?
 
 ∀ n ∃ m (n^2 < m)
 
-
+the square of every integer has an integer that is bigger
 
 
 
 ∀ x ∃ y (x == y^2)
 
+for every x value there exists a y that when squared is equal to x
 
-
+false 
 
 ∀ n ∃ m (n^2 == m)
 
-
+or every n value there exists a m that when n is squared it will be equal to some m
 
 
 ∃ m ∀ n (n^2 == m)
 
+same thing as ∀ x ∃ y (x == y^2)
 
 
 /////////////////////////
@@ -137,8 +139,9 @@ The sum of two negative integers is negative
 The difference of two positive integers is
 not necessarily positive
 
+∃ x ∃ y ( x > 0 ⋀ y > 0 , x - y <= 0 )
 
-
+true x =2, y= 3, 2 - 3 = -1
 
 
 /////////////////////////
