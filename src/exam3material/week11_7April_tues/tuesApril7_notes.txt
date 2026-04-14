@@ -1,0 +1,489 @@
+HW 8 due tonight
+
+#1: Give a recursive definition of the function Product(m, n),
+where Product(m, n) is the product of the integer m and
+the nonnegative integer n
+
+Base case: n == 0
+    Product(m, 0) = 0
+    Product(m, n) = ???? (a recursive call involving n-1), n > 0
+
+
+
+#5: Use proof by contradiction to prove that the sum of a rational and
+irrational number is irrational.
+
+How to write as an IF/THEN?
+    IF we have a rational number and an irrational number
+    THEN their sum is irrational
+
+Rational definition?
+    A number r is considered rational if r = p/q, where p and q 
+    are integers and q !=0.
+
+    A number is irrational if it is not rational.
+
+
+How to start the proof? 
+
+Assume we have a rational number r and an irrational number i.
+Assume, for the sake of contradiction, that i+r is rational.
+
+Since r is rational, r = p/q where p, q are integers and q != 0.
+Since i+r is rational, i+r = a/b, where a, b are integers and b != 0.
+
+We have:
+    i = (i+r) - r
+     = a/b - p/q 
+     (put it over a common denominator)
+     (show the common denominator is not 0)
+
+After doing that, you have a contradiction -- i would meet the definition
+of rational, but we assumed it was irrational.
+
+(Goal: contradiction)
+
+
+
+
+
+HW 9 will be posted after class
+
+///////////////////////////////
+
+Today:
+
+- Begin programming logic
+
+
+
+Apply proof techniques and similar reasoning to prove correctness
+of basic programs.
+
+(Why does this matter?)
+    things that sensitive (financial, medical, any software in
+    very expensive equipment (space shuttles, planes, etc.))
+
+
+library methods (like sorting, etc.)
+
+
+AWS formal methods
+
+
+
+Drone flight 
+
+
+
+////////////////////////////
+
+Programs are written in Slang, which is a subset of Scala. We will
+study:
+    - variables (boolean, int, sequences)
+    - printing and user input
+    - math operations
+    - conditional operations
+    - if and if/else statements
+    - while loops
+    - functions
+
+
+--> Logika/Slang were created by the Santos lab in the CS dept.
+    --> has funding from DARPA, Air Force for model checking
+
+
+--> Can run on the JVM
+--> Slang can also be compiled to C
+--> can demonstrate program correctness down to machine code
+--> more info: https://slang.sireum.org/about/
+
+
+--> gives you semantic verfication, unlike test cases (verification)
+--> lets you learn programming project by applying manually, then 
+    switch to automatic verification based on specifications
+
+
+
+Basic program #1
+    - get user input number, add one to it, print it out
+
+Basic program #2
+    - get user input number, print whether it is positive or negative
+
+Basic program #3
+    - use a loop to print the numbers from 10 down to 1
+
+Basic program #4
+    - write a separate function to add all elements in a sequence
+    - create a sequence, call the function, print the result
+
+
+
+
+First: prove program correctness in "manual" mode
+    (we have to process the knowledge gained
+    in each statement)
+
+
+Then: prove program correctness in "auto" mode
+    - we provide function contracts and loop invariants
+    - checker can make sure our program meets our
+    specifications
+
+
+////////////////////////
+
+Preconditions: 
+    assumptions we need to make before some section of code
+
+
+Postconditions: 
+    things we want to prove our program does
+
+/////
+
+assume statements
+    - lets us make assumptions about user input
+    - we can pull these assumptions into a proof
+
+
+
+Example:
+    var input: Z = Z.prompt("Enter a positive number: ")
+    assume(input > 0)
+
+/////
+
+assert statements
+    - what we want to prove is true after some code
+        (postconditions)
+
+    - must prove EXACTLY that statement before we assert it
+
+
+
+assert(some claim)
+
+
+How are Logika asserts different from C# (and other languages)?
+
+Logika: assert is satisfied if we have PROVED what it claims
+
+Other languages (like C#): asserts call the code, are satisfied
+    if it returns what we are asserting
+
+
+
+
+////////////////////////
+
+Process of validating a program:
+
+
+(user input)
+
+(any assumptions needed about user input - assume)
+
+program statement
+
+(claims/asserts)
+
+program statement
+
+(claims/asserts)
+
+program statement
+
+(claims/asserts about output/results/postconditions)
+
+assert statement
+
+
+
+
+
+
+///////////////////////////////
+
+Claims go in "proof blocks", which look like:
+
+Deduce(
+    //line numbers with claims and justifications
+    //similar to prop/pred logic proofs
+
+    x ( claim ) by Justification(params)
+)
+
+//////////////////////////////
+
+Justifications (for now):
+
+Premise
+
+
+
+
+Example:
+
+var input: Z = Z.prompt("Enter a positive number: ")
+assume(input > 0)
+var y: Z = 12
+
+//proof block? what would go there?
+Deduce(
+    1 (input > 0) by Premise,
+    2 ( y == 12 ) by Premise
+)
+
+
+
+
+////
+
+Algebra* (or Algebra T)
+
+    var x: Z = 2
+
+    Deduce(
+        1 ( x == 2 ) by Premise,
+        2 ( x >= 2 ) by Algebra*(1),
+        3 ( 4 > 0 ) by Algebra T
+    )
+
+
+
+////
+
+ANY of your propositional/predicate logic justifications
+    (especially AndE1, AndE2, AndI, OrI1, OrI2)
+
+
+
+
+//////////////////////////////
+
+(add.sc)
+Example: write a program that creates a number, x, with value 2
+
+Create a value, y, that is initialized to x + 2
+
+We want to assert at the end that y is 4
+
+
+
+//////////////////////////////
+
+(in-class quiz)
+
+
+//////////////////////////////
+
+(do on your own)
+
+Example (max.sc):
+
+get 2 user inputs: x and y
+assume that x > y
+set a max variable to x
+
+want to assert that max is the biggest of our two inputs
+
+///////////////////////////////
+
+The Algebra* justification works for most mathematical manipulations
+
+Will not work on claims involving ∧, ∨, →, ∀, ∃
+
+y == z
+x == 2 ∧ x == y
+
+x == 2 ∧ x == z
+
+Another justification: Subst
+
+
+
+
+
+
+
+
+
+/////////////////////////////
+
+Subst_<(m, n)
+
+
+
+Deduce(
+    ...
+    m ( LHS_M == RHS_M ),      //must be an equivalence
+    ...
+    n ( claim1 ),
+    ...
+    j ( claim2 )              by Subst_<(m, n)
+)
+
+claim2 rewrites claim1 by substituting all occurrences of
+    LHS_M with RHS_M
+
+
+    (the < points at the value we are REPLACING)
+
+
+
+Example:
+
+Deduce(
+    ...
+    m ( x + 1 == y - 4 ),
+    ...
+    n ( x*(x + 1) == (x + 1) + y ),
+    ...
+    j ( x*(y-4) == (y-4) + y )     by Subst_<(m, n)
+)
+
+
+
+
+
+/////////////////////////////
+
+Subst_>(,m n)
+
+Deduce(
+    ...
+    m ( LHS_M == RHS_M ),      //must be an equivalence
+    ...
+    n ( claim1 ),
+    ...
+    j ( claim2 )             by Subst_>(m, n)
+)
+
+claim2 rewrites claim1 by substituting all occurrences of
+    RHS_M with LHS_M
+
+
+
+Example:
+
+Deduce(
+    ...
+    m ( x + 1 == y )
+    ...
+    n ( y*(x + 1) == (x + 1) + y )
+    ...
+    j ( (x+1)*(x + 1) == (x + 1) + x + 1 ) by Subst_>(m, n)
+)
+
+
+
+
+
+/////////////////////////////////
+
+Example (code fragment):
+
+val num: Z = x + 2
+val answer: Z = 4*num + 8
+val another: Z = 5 - (x + 2)*3
+
+
+Deduce(
+    1 ( num == x + 2 )              by Premise,
+    2 ( answer == 4*num + 8 )       by Premise,
+    3 ( another == 5 - (x+2)*3 )    by Premise,
+
+    //substitute in for "num" in "answer"
+    4 ( answer == 4*(x+2) + 8 ) by Subst_<(1, 2)
+
+    //substitute in for "x+2" in "another"
+    5 ( another == 5 - (num)*3 ) by Subst_>(1, 3)
+)
+
+
+//////////////////////////////
+
+<-- stopped here, will continue on Thursday
+
+//////////////////////////////
+
+Assignment with mutation
+
+
+var x: Z = 2
+
+//what could we put in a proof block here?
+
+
+
+x = x + 2       //what do we know about x?
+
+
+//what might we try to put in a proof block here?
+//would it make sense?
+
+
+
+x = x + 4
+
+
+
+
+//////////////////////////////
+
+If you change the value of variable "name", write that claim
+using:
+
+    Old(name)
+
+in the very next proof block. Only ONE "Old" value exists
+at a time.
+
+
+The Old(name) refers to value of the variable just before
+the latest update.
+
+Goal: state that variable's current value WITHOUT using Old
+by the end of next proof block
+
+
+y = y + 4
+
+Deduce(
+    ???
+)
+
+x = x + 3
+
+Deduce(
+    ???
+    //what "Old" values are available?
+)
+
+//////////////////////
+
+Example (add3.sc):
+
+- get an input number
+- save out an "orig" value that is equal to the input
+
+add 1 to the input number
+add 2 to the input number
+
+want to assert that the resulting number is 3 more than the orig value
+
+
+
+--> what if we added an assume that the input number
+    was positive?
+
+--> could we add to our assert that the resulting number
+    is positive?
+
+//////////////////////
+
+Next time:
+- verifying programs with modulus and division
+- begin verifying conditional statements
