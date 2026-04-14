@@ -21,9 +21,10 @@ Top-level operators with quantifiers
 I will use parentheses to be clear what precedence to use with quantifiers
 
 Top-level operators for:
-
+           *
 (∀ x P(x)) ⋀ (∀ x Q(x))
-∀ x (P(x) ⋁ Q(x))
+  *        
+∀ x (P(x) ⋁ Q(x)) for all quantifier
 
 
 ///////////////////////////////
@@ -37,10 +38,12 @@ Today:
 Reminder:
 
 AllE - when can we use?
-
+a for all statement individual ( either a parameter to proof function or 
+introducted in a subproof)
 
 AllI - when do we use? idea?
-
+when we want to create a for all statement use AllI, needs subproof, name a random individual
+in domain in subproof, cannot be someone used before
 ////////////////////////
 
 Bigger example: allBig.sc
