@@ -17,15 +17,8 @@ K(indiv)
 ⊢
 ( ∃ ((x: T) => H(x)) )
     Proof(
-      1 (∀ ((x: T) => (!G(x) __>: H(x)))) by Premise,
-      2 (∀ ((x: T) => (K(x) __>: L(x) & !G(x)))) by Premise,
-      3 (K(indiv) ) by Premise,
-      4 (K(indiv) __>: L(indiv) & !G(indiv)) by AllE[T](2),
-      5 (L(indiv) & !G(indiv)) by ImplyE(4,3),
-      6 (!G(indiv)) by AndE2(5),
-      7 (!G(indiv) __>: H(indiv)) by AllE[T](1),
-      8 ( H(indiv)) by ImplyE(7,6),
-      9 ( ∃ ((x: T) => H(x))) by ExistsI[T](8)
+      1 ( !(∃((x: T) => P(x))) ) by Premise,
+
       
     )
   )
