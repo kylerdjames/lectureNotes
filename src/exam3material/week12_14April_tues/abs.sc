@@ -11,11 +11,27 @@ val numOrig : Z = num
 
 if (num < 0) {
   num = num * -1
+
+  Deduce(
+    1 ( numOrig == Old(num)) by Premise,
+    2 ( Old(num) < 0 ) by Premise,
+    3 ( num == Old(num) * -1 ) by Premise,
+    4 ( num >= 0 ) by Algebra*(2,3),
+    5 ( num == numOrig * -1) by Subst_>(1,3),
+  )
 } else {
   //no code, just for verification
+  Deduce(
+    1 ( !(num < 0)) by Premise,
+    2 ( numOrig == num) by Premise,
+    3 ( num >= 0) by Algebra*(1),
+  )
 
 }
 
+Deduce(
 
+)
+assert( num >= 0)
 //How can we assert that num is the absolute value of the input?
 //(what was the original input?)
