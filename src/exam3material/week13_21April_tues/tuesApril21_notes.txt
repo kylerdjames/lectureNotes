@@ -1,0 +1,102 @@
+HW 10 due tonight
+    (no new homework this week)
+
+Exam 3 is Thursday, April 23
+
+Erik and Drake have an Exam 3 review session 
+    Wednesday, April 22 from 2:30-5:00 pm in DUE 1118
+
+//////////////////////////////
+
+Today:
+- finish loop multiplication example
+- more with loop invariants
+- review for exam 3
+
+//////////////////////////////
+
+more with mult_loop.sc
+
+
+
+--> what if the loop condition was "i < y" instead?
+
+//////////////////////////////
+
+Loop invariants.
+
+- Summarize loop progress
+- Often describe the relationship between the variables that change
+- Used with the negation of loop condition to prove postconditions
+
+//////////////////
+
+Example: sum_evens.sc
+
+--> make table of relationship between loop variables
+--> write function contract 
+--> write loop invariant 
+--> mark what we could list as PREMISES in all places
+--> mark what we would need to SHOW in all places 
+
+///////////////////
+
+in-class quiz
+
+///////////////////
+
+Exam 3 review.
+
+--> Covers everything since Exam 2 (including today)
+--> Closed notes, closed computers
+
+Topics:
+- Predicate logic proofs emphasizing the existential quantifier
+- Recursive definitions (functions and sets)
+- Proof techniques, including:
+    - **Mathematical induction
+    - Direct (conditional) proofs
+    - Contrapositive proofs 
+    - Proof by contradiction
+    - Proofs on sets
+    --> know the formal definition of even/odd numbers
+- Programming logic, including:
+    - assumes and asserts
+    - Subst and Algebra
+    - **Verifying programs with:
+        - Variable assignments/expressions/updates
+        - If/else statements
+        - Functions (plus recursive functions and calling functions)
+        - Loops
+    - Function contracts (meaning of preconditions/postconditions)
+    - Loop invariants
+
+The exam will NOT involve programs that use modulus or division.
+
+
+Open-ended problems will be similar in format to Homework 7-10.
+Multiple choice similar to in-class quizzes and practice quizzes 
+
+
+When doing programming logic:
+    - when to have a proof block?
+        before a function call: prove precondition
+        before any assert: prove exactly the assert
+        when variables change - need proof block to use "Old" and process what happened
+        if/else - show something in if, show something in else
+            after if/else: can say as premise a claim proved in both branches
+                        A V B as premise (if A was proved in if and B in else)
+        before a function returns: prove the postcondition
+        prove any invariants before loop begins AND at end of each loop iteration
+
+    - rules with "Old"
+    - rules with conditionals
+    - before function returns?
+    - before loop begins?
+    - before end of loop iteration?
+    - before calling a function?
+    - after returning from a function?
+
+
+
+Now, we will work through some of practice exam 3
